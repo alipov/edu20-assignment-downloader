@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "minimum_chrome_version": "32",
 
-  "name": "edu20 (NEO LMS) Dropbox Assignments Downloader",
+  "name": "edu20 (NEO) Dropbox Assignments Downloader",
   "description": "This extension allows to download all the class's lesson assignments at once",
   "version": "0.1",
 
