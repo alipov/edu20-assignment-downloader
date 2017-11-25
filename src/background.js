@@ -1,12 +1,12 @@
-console.log('in background.js');
-chrome.webNavigation.onHistoryStateUpdated.addListener(
-	function(details) {
-		console.log('tab updated ' + details.url);
-		chrome.tabs.sendMessage(details.tabId, {
-			event: 'url_changed',
-			url: details.url
-		});
-	});
+// console.log('in background.js');
+// chrome.webNavigation.onHistoryStateUpdated.addListener(
+// 	function(details) {
+// 		console.log('tab updated ' + details.url);
+// 		chrome.tabs.sendMessage(details.tabId, {
+// 			event: 'url_changed',
+// 			url: details.url
+// 		});
+// 	});
 
 /* poor man's test */
 function isTextContentType(contentType) {

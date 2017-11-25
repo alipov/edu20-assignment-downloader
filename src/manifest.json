@@ -4,7 +4,7 @@
 
   "name": "edu20 (NEO) Dropbox Assignments Downloader",
   "description": "This extension allows to download all the class's lesson assignments at once",
-  "version": "0.1",
+  "version": "0.2",
 
   "background": {
     "scripts": [
@@ -31,7 +31,6 @@
 
   "permissions": [
     "https://*.edu20.org/teacher_dropbox_assignment/*",
-    "webNavigation",
     "downloads"
   ]
 }

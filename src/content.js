@@ -123,10 +123,10 @@ chrome.runtime.onMessage.addListener(
 		if (message != null) {
 			// console.log('received message: ' + message.event);
 			switch (message.event) {
-				case 'url_changed':
-					// console.log('url updated: ' + message.url);
-					initialize();
-					break;
+				// case 'url_changed':
+				// 	// console.log('url updated: ' + message.url);
+				// 	initialize();
+				// 	break;
 				case 'attachment_downloaded':
 					progressCounter++;
 					if (progressCounter == message.itemsLength) {
