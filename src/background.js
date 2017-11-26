@@ -24,8 +24,8 @@ function isTextContentType(contentType) {
 	return false;
 }
 
-function loadAssignmentUrl(baseUrl, assignment, student, callback) {
-	var path = "/teacher_dropbox_assignment/grade/" + assignment.id + "?student=" + student.id;
+function loadAssignmentUrl(baseUrl, basePath, assignment, student, callback) {
+	var path = "/" + basePath + "/grade/" + assignment.id + "?student=" + student.id;
 	var url = baseUrl + path;
 
 	var xhttp = new XMLHttpRequest();
@@ -120,9 +120,9 @@ function downloadAssignment(assignmentUrl, student, callback) {
 	xhr.send();
 }
 
-function createAssignmentUrlPromise(baseUrl, assignment, student) {
+function createAssignmentUrlPromise(baseUrl, basePath, assignment, student) {
 	return new Promise(function(resolve, reject) {
-		loadAssignmentUrl(baseUrl, assignment, student, function(result) {
+		loadAssignmentUrl(baseUrl, basePath, assignment, student, function(result) {
 			resolve(result);
 		});
 	});
@@ -145,7 +145,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, callback) {
 
 		var assignmentUrlPromises = [];
 		request.data.forEach(function(student) {
-			var promise = createAssignmentUrlPromise(request.baseUrl, request.assignment, student);
+			var promise = createAssignmentUrlPromise(request.baseUrl, request.basePath, request.assignment, student);
 			assignmentUrlPromises.push(promise);
 		});
 

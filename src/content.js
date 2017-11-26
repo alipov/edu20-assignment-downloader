@@ -6,6 +6,10 @@ function getLastPathElement(path) {
 	return lastIndex == -1 ? path : path.substr(lastIndex + 1);
 }
 
+function getFirstPathElement(path) {
+	return path.split('/')[1];
+}
+
 function replaceAll(str, search, replacement) {
 	// seems like this gives best performance on Chrome (see comments at https://stackoverflow.com/a/1145525/1233652)
 	return str.split(search).join(replacement); 
@@ -79,7 +83,8 @@ function initialize() {
 							name: assignmentName
 						},
 						data: studentData,
-						baseUrl: window.location.origin
+						baseUrl: window.location.origin,
+						basePath: getFirstPathElement(window.location.pathname)
 					}, function(result) {
 						if (result.finished) {
 							$(e.target).html("Downloaded!");
