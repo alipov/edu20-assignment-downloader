@@ -24,6 +24,20 @@ function isTextContentType(contentType) {
 	return false;
 }
 
+function removeLmsSuffix(filename) {
+	let index = filename.indexOf('_lmsauth_');
+	if (index === -1) {
+		return filename;
+	}
+	let base = filename.substr(0, index);
+	if (filename.indexOf('.') !== -1) {
+		let extension = filename.substr(filename.lastIndexOf('.') + 1);
+		return base + '.' + extension;
+	} else {
+		return base;
+	}
+}
+
 function loadAssignmentUrl(baseUrl, basePath, assignment, student, callback) {
 	var path = "/" + basePath + "/grade/" + assignment.id + "?student=" + student.id;
 	var url = baseUrl + path;
@@ -106,7 +120,7 @@ function downloadAssignment(assignmentUrl, student, callback) {
 		callback({
 			succeeded: true,
 			isBinary: isBinary,
-			filename: student.name + '_' + filename,
+			filename: student.name + '_' + removeLmsSuffix(filename),
 			data: xhr.response
 		});
 	}
