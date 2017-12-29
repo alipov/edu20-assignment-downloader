@@ -4,7 +4,7 @@
 
   "name": "edu20 (NEO) Assignments Downloader",
   "description": "This extension allows to download all the class's lesson assignments at once",
-  "version": "0.3",
+  "version": "0.4",
 
   "background": {
     "scripts": [
