@@ -183,7 +183,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, callback) {
 					if (!result.succeeded) {
 						return;
 					}
-					zip.file(result.filename, result.data, { binary: result.isBinary });
+					// using 'binary: true' even for text files, see:
+					// https://stuk.github.io/jszip/documentation/api_jszip/file_data.html#binary-option
+					zip.file(result.filename, result.data, { binary: true });
 				});
 
 				zip.generateAsync({ type: "blob" }).then(function(content) {
