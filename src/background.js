@@ -195,7 +195,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, callback) {
 					var url = URL.createObjectURL(content);
 					chrome.downloads.download({
 						url: url,
-						filename: request.assignment.name + '.zip'
+						filename: (request.assignment.name.length === 0 ? 'assignments' : request.assignment.name) + '.zip'
 					});
 					// saveAs(content, "some.zip");
 				});

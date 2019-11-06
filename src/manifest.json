@@ -4,7 +4,7 @@
 
   "name": "NEO LMS Assignments Downloader",
   "description": "This extension allows to download all the class's lesson assignments at once",
-  "version": "0.5",
+  "version": "0.6",
 
   "background": {
     "scripts": [
